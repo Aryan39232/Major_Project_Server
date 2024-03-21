@@ -607,15 +607,16 @@ app.post("/api/createproject", async (req, res) => {
     }
 
     let influencerRecord = "";
-    influencerRecord._id = "";
 
     // Find the influencer record if one was chosen
     if (influencerAssigned !== "none") {
       influencerRecord = await findUserByUsername(influencerAssigned);
-      console.log("influencerRecord:", influencerRecord);
     }
+    console.log("influencerRecord:", influencerRecord);
 
     // Create a project
+
+    console.log("jokdjfdjf");
     const res = await Project.create({
       title: title,
       description: description,
@@ -773,7 +774,7 @@ app.post("/api/updateproject", async (req, res) => {
     }
     // Step 1A - Influencer Accepts Contract/Project
     if (action === "accept") {
-      // Update Status
+      // Update Statuss
       await Project.updateOne(
         { _id: project._id },
         {
