@@ -2,7 +2,7 @@
 
 const dotenv = require("dotenv");
 const aws = require("aws-sdk");
-const crypto = require("crypto");
+const crypto = require("crypto"); // authentication
 const { promisify } = require("util");
 const randomBytes = promisify(crypto.randomBytes);
 
