@@ -47,6 +47,7 @@ const userRoutes = require("./routes/user");
 
 app.use("/user", userRoutes);
 
+
 // const upload = multer ( { dest: 'uploads/'});
 
 // To allow requests from client side server
@@ -58,6 +59,7 @@ const ROLES = {
   Influencer: 2000,
   Brand: 3000,
 };
+
 
 // Establish connection
 mongoose
