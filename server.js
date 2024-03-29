@@ -35,6 +35,11 @@ app.use(
     credentials: true,
   })
 );
+
+
+
+
+//body parser
 app.use(bodyParser.json());
 
 // test route for MVC architecture
