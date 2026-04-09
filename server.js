@@ -3,7 +3,6 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
-const port = 5000;
 const request = require("request");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -16,7 +15,6 @@ const bcrypt = require("bcryptjs"); //password hasher
 const jwt = require("jsonwebtoken");
 // Very sensitive - keep safe.
 const JWT_SECRET_KEY = "mv(3jfoa.@01va(Adup";
-const MONGOOSE_URL = process.env.MONGODB;
 const moment = require("moment");
 // Stripe
 const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST);
@@ -61,22 +59,21 @@ const ROLES = {
 
 // Establish connection
 mongoose
-  .connect(
-    "mongodb+srv://Aryan:OLfa6oyWhXuvL2q2@cluster0.ivdthwu.mongodb.net/",
+  .connect( process.env.DATABASE_URI,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }
   )
   .then((res) => {
-    console.log(`Database connected at ${MONGOOSE_URL}`);
+    console.log(`Database connected`);
   })
   .catch((err) => console.log(err));
 
 app.use("/", express.static(path.join(__dirname, "static")));
 
-app.listen(port, () => {
-  console.log(`Server is online at Port ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is online at Port ${process.env.PORT}`);
 });
 
 // Multer Storage for Files
