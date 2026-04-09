@@ -204,7 +204,7 @@ app.post("/api/getimage", async (req, res) => {
 
 // Test Endpoint
 app.get("/", (req, res) => {
-  res.send("Welcome to CoLab's Backend.");
+  res.send("Welcome to Backend.");
 });
 
 // ENDPOINT #1 - USER SIGNUP
