@@ -29,7 +29,7 @@ const { promisify } = require("util");
 const randomBytes = promisify(crypto.randomBytes);
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://brand-and-influencer-platform.vercel.app",
     credentials: true,
   })
 );
